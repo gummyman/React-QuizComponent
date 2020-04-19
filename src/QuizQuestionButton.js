@@ -5,15 +5,18 @@ class QuizQuestionButton extends Component{
 
   constructor(props){
     super(props);
-    this.button_text = props.button_text;
+  }
+
+  handleClick(){
+        this.props.clickHandler(this.props.button_text);
   }
 
 
   render(){
     return (
       <li>
-        <button value= {this.button_text}>
-        {this.button_text}
+        <button value= {this.props.button_text} onClick = {this.handleClick.bind(this)}>
+        {this.props.button_text}
         </button>
       </li>
     );

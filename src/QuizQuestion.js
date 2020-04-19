@@ -5,23 +5,24 @@ class QuizQuestion extends Component{
 
     constructor(props){
       super(props);
-      this.id = props.quiz_question.id;
-      this.instruction_text = props.quiz_question.instruction_text;
-      this.answer_options = props.quiz_question.answer_options;
-      this.answer = props.quiz_question.answer;
     }
 
+    handleClick(button_text){
+      if(this.props.quiz_question.answer===button_text){
+        this.props.showNextQuestion();
+      }
+    }
 
     render(){
       return(
         <main>
           <section>
-              <p>{this.instruction_text}</p>
+              <p>{this.props.quiz_question.instruction_text}</p>
           </section>
           <section>
-
                 <ul>
-                  <QuizQuestionButton button_text = {this.answer_options[0]}/>
+                  {this.props.quiz_question.answer_options.map((answer_option,index)=>
+                  <QuizQuestionButton key= {index} button_text = {answer_option} clickHandler={this.handleClick.bind(this)}/>)}
                 </ul>
 
           </section>
