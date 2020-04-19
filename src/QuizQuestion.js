@@ -15,7 +15,7 @@ class QuizQuestion extends React.Component{
       return(
         <main>
           <section>
-              <p></p>
+              <p>{this.instruction_text}</p>
           </section>
           <section>
 
