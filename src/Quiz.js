@@ -8,12 +8,12 @@ class Quiz extends React.Component{
 
 constructor(props){
     super(props);
-    this.state = {quiz_position:3};
+    this.state = {quiz_position:2};
 }
 
 
   render(){
-    const isQuizEnd = (this.state.quiz_position==(quizData.quiz_questions.length+1));
+    const isQuizEnd = ((this.state.quiz_position-1)===quizData.quiz_questions.length);
 
     return (
     <div>
